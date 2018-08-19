@@ -25,8 +25,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="?">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="?controller=user&action=logout">Logout <span class="sr-only">(current)</span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="?controller=pages&action=login">Login</a>
+                        <a class="dropdown-item" href="?controller=user&action=logout">Logout</a>
+                    </div>
                 </li>
             </ul>
         </div>
