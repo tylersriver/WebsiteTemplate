@@ -24,6 +24,9 @@ class PagesController
      */
     public function login() 
     {
+        if(!isset($_GET['error'])) {
+            $_GET['error'] = '';
+        }
         require_once('php/views/pages/login.php');
     }
 }
