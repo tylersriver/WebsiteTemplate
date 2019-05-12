@@ -1,10 +1,13 @@
 <?php
 session_start();
 
+// Add configs and non-class libs
+// ---------------------------------------------------------------------
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/lib/HtmlBuilder.php';
 
 // Register Autoload for classes
+// ---------------------------------------------------------------------
 spl_autoload_register(function ($class) {
     $directories = [
         'lib/' => '.php',
