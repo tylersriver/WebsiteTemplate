@@ -27,7 +27,7 @@ class LoginView extends AbstractView
                             h('label.col-sm-2.col-form-label.col-form-label-sm', 'Password'),
                             h('div.col-sm-10',
                                 h('input.form-control.form-control-sm', [
-                                    'type' => 'text',
+                                    'type' => 'password',
                                     'name' => 'password',
                                     'id'=>'password',
                                     'placeholder'=>'Password'
