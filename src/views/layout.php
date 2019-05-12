@@ -7,7 +7,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Main Styles -->
-    <link rel="stylesheet" href="styles/global-styles.css">
+    <link rel="stylesheet" href="views/styles/global-styles.css">
 
   </head>
   
@@ -40,7 +40,7 @@
 
     <!-- Route the action
     ========================================================================================================================================================================== -->
-    <?php require_once('php/routes.php'); ?>
+    <?php require_once(__DIR__.'/../routes.php'); ?>
 
     <footer>
         <div class="footer"> Copyright Tyler Sriver | 2018 | <a href='https://github.com/tylersriver/'>GitHub Repo</a></div>

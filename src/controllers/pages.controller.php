@@ -8,7 +8,7 @@ class PagesController
     public function overview() 
     {
         // Show view
-        require_once('php/views/pages/overview.php');
+        require_once(__DIR__.'/../views/pages/overview.php');
     }
 
     /** 
@@ -16,7 +16,7 @@ class PagesController
      */
     public function error() 
     {
-        require_once('php/views/pages/error.php');
+        require_once(__DIR__.'/../views/pages/error.php');
     }
 
     /** 
@@ -27,7 +27,7 @@ class PagesController
         if(!isset($_GET['error'])) {
             $_GET['error'] = '';
         }
-        require_once('php/views/pages/login.php');
+        require_once(__DIR__.'/../views/pages/login.php');
     }
 }
 

@@ -3,11 +3,11 @@ session_start();
 
 // PHP Includes
 // ---------------------------------------------------------------------
-require_once "php/models/SimpleSQL.php";
-require_once "php/models/SimpleORM.php";
+require_once __DIR__."/models/SimpleSQL.php";
+require_once __DIR__."/models/SimpleORM.php";
 
-require_once "php/models/User.php"; 
-require_once "php/lib/SimpleTable.php"; 
+require_once __DIR__."/models/User.php";
+require_once __DIR__."/lib/SimpleTable.php";
 
 // Handle Routing
 // ---------------------------------------------------------------------
@@ -27,4 +27,4 @@ if(!isset($_SESSION['login_user']) and $controller != 'user' and $action != 'log
     $_GET['error'] = '';
 }
 
-require_once('php/views/layout.php');
+require_once(__DIR__.'/views/layout.php');

@@ -8,7 +8,7 @@
  */
 function call($controller, $action)
 {
-    require_once('php/controllers/' . $controller . '.controller.php');
+    require_once(__DIR__.'/controllers/' . $controller . '.controller.php');
 
     switch($controller) {
       case 'pages':
