@@ -1,7 +1,7 @@
-create database Ticketing;
+create database BasicWebsite;
 
-drop table if exists user;
-create table user (
+drop table if exists `user`;
+create table `user` (
     userId int(11) AUTO_INCREMENT primary key,
     username varchar(256),
     password varchar(512)

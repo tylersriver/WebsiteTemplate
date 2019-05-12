@@ -24,6 +24,11 @@ class PagesController
      */
     public function login() 
     {
+        if(isset($_SESSION['login_user'])) {
+            call('pages', 'overview');
+            return;
+        }
+
         if(!isset($_GET['error'])) {
             $_GET['error'] = '';
         }

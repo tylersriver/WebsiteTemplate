@@ -14,7 +14,7 @@ class SimpleSQL
     private  $servername = 'localhost';
     private  $username = 'dev_user';
     private  $password = 'ILoveJennifer712';
-    private  $db = 'test';
+    private  $db = 'BasicWebsite';
 
     private $conn; // MySQLi Connection
     private static $instance = null;
