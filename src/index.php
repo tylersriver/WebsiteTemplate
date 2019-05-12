@@ -1,11 +1,7 @@
 <?php
 session_start();
 
-// SQL Connection Setup
-define("MYSQL_SERVER", "localhost");
-define("MYSQL_USER", "dev_user");
-define("MYSQL_PASSWORD", "ILoveJennifer712");
-define("MYSQL_DB", "BasicWebsite");
+require_once __DIR__ . '/../../config.php';
 
 // Register Autoload for classes
 spl_autoload_register(function($class) {
