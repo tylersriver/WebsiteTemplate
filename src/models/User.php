@@ -5,7 +5,7 @@
  * Represents Object model for 
  * user table
  */
-class user extends SimpleORM
+class user extends ORM
 {
     protected static $table = 'user';
     protected static $key = 'userId';

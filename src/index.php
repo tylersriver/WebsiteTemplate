@@ -1,13 +1,28 @@
 <?php
 session_start();
 
-// PHP Includes
-// ---------------------------------------------------------------------
-require_once __DIR__."/models/SimpleSQL.php";
-require_once __DIR__."/models/SimpleORM.php";
+// SQL Connection Setup
+define("MYSQL_SERVER", "localhost");
+define("MYSQL_USER", "dev_user");
+define("MYSQL_PASSWORD", "ILoveJennifer712");
+define("MYSQL_DB", "BasicWebsite");
 
-require_once __DIR__."/models/User.php";
-require_once __DIR__."/lib/SimpleTable.php";
+// Register Autoload for classes
+spl_autoload_register(function($class) {
+    $directories = [
+        'lib/' => '.php',
+        'models/' => '.php',
+        'controllers/' => '.php'
+    ];
+
+    foreach($directories as $directory => $fileAppend) {
+        $filePath = __DIR__ . '/' . $directory . $class . $fileAppend;
+        if(file_exists($filePath)) {
+            require_once $filePath;
+            return;
+        }
+    }
+});
 
 // Handle Routing
 // ---------------------------------------------------------------------
