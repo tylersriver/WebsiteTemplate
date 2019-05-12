@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class SimpleORM
  *
@@ -23,7 +24,7 @@ class ORM extends SQL
      */
     public static function Get($id)
     {
-        $sql = "SELECT ".static::$fields." FROM ".static::$table." WHERE ".static::$key." = ? LIMIT 1";
+        $sql = "SELECT " . static::$fields . " FROM " . static::$table . " WHERE " . static::$key . " = ? LIMIT 1";
         $result = self::query($sql, [$id]);
         return $result[0];
     }
@@ -35,23 +36,22 @@ class ORM extends SQL
      */
     public static function GetList($where = array())
     {
-        $sql = "SELECT ".static::$fields." FROM ".static::$table." ";
+        $sql = "SELECT " . static::$fields . " FROM " . static::$table . " ";
 
         // Add where if set
-        if(count($where) > 0) {
+        if (count($where) > 0) {
             $sql .= " WHERE ";
         }
 
         // Add where clause
         $params = array();
         $i = 0;
-        foreach($where as $key => $val)
-        {
-            $sql .= $key ." = ? ";
+        foreach ($where as $key => $val) {
+            $sql .= $key . " = ? ";
             $params[] = $val;
 
             $i++;
-            if($i < count($where)) {
+            if ($i < count($where)) {
                 $sql .= " AND ";
             }
         }
@@ -67,7 +67,7 @@ class ORM extends SQL
     public static function GetOne($where = array())
     {
         $result = static::GetList($where);
-        if(count($result) < 1) {
+        if (count($result) < 1) {
             return array();
         }
         return $result[0];
@@ -80,24 +80,24 @@ class ORM extends SQL
      */
     public static function Add($values = array())
     {
-        if(count($values) == 0){
+        if (count($values) == 0) {
             return false;
         }
 
-        $sql = "INSERT INTO ".static::$table;
+        $sql = "INSERT INTO " . static::$table;
 
         $cols = " ( "; // String for insert columns
         $vals = " ( "; // String for vals to insert
         $params = array(); // Parameters for query
         $i = 0; // Count for iteration
-        foreach($values as $key => $val){
+        foreach ($values as $key => $val) {
             $cols .= "$key";
-            
+
             $vals .= "? ";
             $params[] = $val;
 
             $i++;
-            if($i < count($values)) {
+            if ($i < count($values)) {
                 $cols .= ", ";
                 $vals .= ", ";
             }
@@ -105,7 +105,7 @@ class ORM extends SQL
         $cols .= ") ";
         $vals .= ") ";
 
-        $sql .= $cols ." VALUES ". $vals;
+        $sql .= $cols . " VALUES " . $vals;
         $id = self::query($sql, $params);
 
         return static::Get($id);
@@ -119,22 +119,22 @@ class ORM extends SQL
      */
     public static function Update($id, $set = array())
     {
-        $sql = "UPDATE ".static::$table." SET ";
+        $sql = "UPDATE " . static::$table . " SET ";
         $params = array();
 
         // Build fields to update string
         $i = 0;
-        foreach($set as $key => $val) {
-            $sql .= $key ." = ?";
+        foreach ($set as $key => $val) {
+            $sql .= $key . " = ?";
             $params[] = $val;
 
             $i++;
-            if($i < count($set)) {
+            if ($i < count($set)) {
                 $sql .= ", ";
             }
         }
-        $sql .= " WHERE ".static::$key." = ?";   
-        $params[] = $id; 
+        $sql .= " WHERE " . static::$key . " = ?";
+        $params[] = $id;
         return self::query($sql, $params);
     }
 
@@ -146,35 +146,35 @@ class ORM extends SQL
      */
     public static function UpdateMany($set = array(), $where = array())
     {
-        $sql = "UPDATE ".static::$table." SET ";
+        $sql = "UPDATE " . static::$table . " SET ";
         $params = array();
 
         // Build fields to update string
         $i = 0;
-        foreach($set as $key => $val) {
-            $sql .= $key ." = ?";
+        foreach ($set as $key => $val) {
+            $sql .= $key . " = ?";
             $params[] = $val;
 
             $i++;
-            if($i < count($set)) {
+            if ($i < count($set)) {
                 $sql .= ", ";
             }
         }
         $sql .= " ";
 
-        $sql .= " WHERE ";                                            
+        $sql .= " WHERE ";
         $i = 0;
-        foreach($where as $key => $val) {
-            $sql .= $key ." = ? ";
+        foreach ($where as $key => $val) {
+            $sql .= $key . " = ? ";
             $params[] = $val;
 
-            $i++;                                                    
-            if($i < count($where)) {
+            $i++;
+            if ($i < count($where)) {
                 $sql .= "AND ";
             }
         }
-        
-        return self::query($sql, $params);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+        return self::query($sql, $params);
     }
 
     /**
@@ -188,7 +188,7 @@ class ORM extends SQL
         $toDelete = static::Get($id);
 
         // Delete the record
-        $sql = "DELETE FROM ".static::$table." WHERE ".static::$key." = ?";
+        $sql = "DELETE FROM " . static::$table . " WHERE " . static::$key . " = ?";
         self::query($sql, [$id]);
 
         // return the deleted record
@@ -203,7 +203,7 @@ class ORM extends SQL
     public static function DeleteMany($where = array())
     {
         // Prevent deleting all records
-        if(count($where) == 0) {
+        if (count($where) == 0) {
             return array();
         }
 
@@ -211,15 +211,15 @@ class ORM extends SQL
         $toDelete = static::GetList($where);
 
         // Build delete query
-        $sql = "DELETE FROM ".static::$table." WHERE ";
+        $sql = "DELETE FROM " . static::$table . " WHERE ";
         $i = 0;
         $params = array();
-        foreach($where as $key => $val) {
-            $sql .= $key ." = ? ";
+        foreach ($where as $key => $val) {
+            $sql .= $key . " = ? ";
             $params[] = $val;
 
             $i++;
-            if($i < count($where)) {
+            if ($i < count($where)) {
                 $sql .= "AND ";
             }
         }

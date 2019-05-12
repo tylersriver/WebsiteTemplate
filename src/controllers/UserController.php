@@ -13,7 +13,7 @@ class UserController
         ]);
 
         // handle invalid login
-        if(empty($userInfo) or !password_verify($password, $userInfo['password'])) {
+        if (empty($userInfo) or !password_verify($password, $userInfo['password'])) {
             $_GET['error'] = 'Invalid Username or Password';
             call('pages', 'login');
             return;

@@ -1,45 +1,45 @@
-<?php 
+<?php
 
 /**
  * Calls the associated action from the controller
- * 
+ *
  * @param string $controller
  * @param string $action
  */
 function call($controller, $action)
 {
-    switch($controller) {
-      case 'pages':
-        $controller = new PagesController();
-        break;
-      case 'user':
-        $controller = new UserController();
-        break;
+    switch ($controller) {
+        case 'pages':
+            $controller = new PagesController();
+            break;
+        case 'user':
+            $controller = new UserController();
+            break;
     }
 
-    $controller->{ $action }();
+    $controller->{$action}();
 }
 
-  // we're adding an entry for the new controller and its actions
-  $controllers = array(
+// we're adding an entry for the new controller and its actions
+$controllers = array(
     'pages' => [
-      'overview', 
-      'error',
-      'login'
+        'overview',
+        'error',
+        'login'
     ],
     'user' => [
-      'login',
-      'logout'
+        'login',
+        'logout'
     ]
-  );
+);
 
-  // Handling calling the controller
-  if (array_key_exists($controller, $controllers)) {
+// Handling calling the controller
+if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
-      call($controller, $action);
+        call($controller, $action);
     } else {
-      call('pages', 'error');
+        call('pages', 'error');
     }
-  } else {
+} else {
     call('pages', 'error');
-  }
+}

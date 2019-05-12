@@ -1,8 +1,9 @@
 <?php
+
 /**
  * Class user
- * 
- * Represents Object model for 
+ *
+ * Represents Object model for
  * user table
  */
 class User extends ORM

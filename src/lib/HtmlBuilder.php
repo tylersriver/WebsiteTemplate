@@ -3,14 +3,14 @@
  * h -> HTML Builder function and example
  *
  * @param string $tag
- * @param array  $children - variadtic uses of _ or properties array
+ * @param array $children - variadtic uses of _ or properties array
  *
  * @return string
  */
 function h($tag, ...$children)
 {
     // Start element
-    if(strpos($tag, '.') === false) {
+    if (strpos($tag, '.') === false) {
         $html = "<$tag ";
     } else {
         // Add element classes
@@ -18,15 +18,15 @@ function h($tag, ...$children)
         $tag = $tagParts[0];
         $html = "<$tag";
         foreach ($tagParts as $key => $class) {
-            if($key === 0) continue;
-            if($key === 1) $html .= " class='";
+            if ($key === 0) continue;
+            if ($key === 1) $html .= " class='";
             $html .= "$class ";
         }
         $html .= "' ";
     }
 
     // Concat parent properties
-    if(count($children) > 0
+    if (count($children) > 0
         and is_array($children[0])
         and array_values($children[0]) !== $children[0]) {
 

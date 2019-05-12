@@ -7,7 +7,7 @@ abstract class AbstractView implements ViewInterface
 
     public function render($return = false)
     {
-        if($return) {
+        if ($return) {
             return $this->html;
         }
         echo $this->html;

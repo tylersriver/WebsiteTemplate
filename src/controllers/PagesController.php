@@ -1,30 +1,30 @@
 <?php
 
-class PagesController 
+class PagesController
 {
     /**
      * Lands on the home page
      */
-    public function overview() 
+    public function overview()
     {
         // Show view
         (new OverviewView())->render();
     }
 
-    /** 
+    /**
      * Show error page
      */
-    public function error() 
+    public function error()
     {
         (new ErrorView())->render();
     }
 
-    /** 
+    /**
      * Show login page
      */
-    public function login() 
+    public function login()
     {
-        if(!isset($_GET['error'])) {
+        if (!isset($_GET['error'])) {
             $_GET['error'] = '';
         }
         (new LoginView())->render();
