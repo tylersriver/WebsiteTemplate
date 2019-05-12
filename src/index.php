@@ -2,13 +2,15 @@
 session_start();
 
 require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/lib/HtmlBuilder.php';
 
 // Register Autoload for classes
 spl_autoload_register(function($class) {
     $directories = [
         'lib/' => '.php',
         'models/' => '.php',
-        'controllers/' => '.php'
+        'controllers/' => '.php',
+        'views/' => '.php'
     ];
 
     foreach($directories as $directory => $fileAppend) {
@@ -38,4 +40,4 @@ if(!isset($_SESSION['login_user']) and $controller != 'user' and $action != 'log
     $_GET['error'] = '';
 }
 
-require_once(__DIR__.'/views/layout.php');
+require_once(__DIR__ . '/layout.php');

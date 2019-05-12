@@ -40,7 +40,7 @@
 
     <!-- Route the action
     ========================================================================================================================================================================== -->
-    <?php require_once(__DIR__.'/../routes.php'); ?>
+    <?php require_once(__DIR__ . '/routes.php'); ?>
 
     <footer>
         <div class="footer"> Copyright Tyler Sriver | 2018 | <a href='https://github.com/tylersriver/'>GitHub Repo</a></div>
