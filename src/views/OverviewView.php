@@ -1,6 +1,5 @@
 <?php
 
-
 class OverviewView extends AbstractView
 {
     function __construct()

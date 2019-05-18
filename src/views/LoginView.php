@@ -1,6 +1,5 @@
 <?php
 
-
 class LoginView extends AbstractView
 {
     function __construct()

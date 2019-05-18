@@ -1,6 +1,5 @@
 <?php
 
-
 abstract class AbstractView implements ViewInterface
 {
     protected $html;

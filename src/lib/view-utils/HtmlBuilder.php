@@ -1,4 +1,5 @@
 <?php
+
 /**
  * h -> HTML Builder function and example
  *
