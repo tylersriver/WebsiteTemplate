@@ -15,19 +15,18 @@ class UserController
         // handle invalid login
         if (empty($userInfo) or !password_verify($password, $userInfo['password'])) {
             $_GET['error'] = 'Invalid Username or Password';
-            call('pages', 'login');
-            return;
+            return call('pages', 'login');
         }
 
         // Set session
         $_SESSION['login_user'] = $username;
-        call('pages', 'overview');
+        return call('pages', 'overview');
     }
 
     public function logout()
     {
         session_destroy();
         $_GET['error'] = 'Logout successful';
-        call('pages', 'login');
+        return call('pages', 'login');
     }
 }

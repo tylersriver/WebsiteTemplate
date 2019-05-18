@@ -8,7 +8,7 @@ class PagesController
     public function overview()
     {
         // Show view
-        (new OverviewView())->render();
+        return (new OverviewView())->render();
     }
 
     /**
@@ -16,7 +16,7 @@ class PagesController
      */
     public function error()
     {
-        (new ErrorView())->render();
+        return (new ErrorView())->render();
     }
 
     /**
@@ -27,7 +27,7 @@ class PagesController
         if (!isset($_GET['error'])) {
             $_GET['error'] = '';
         }
-        (new LoginView())->render();
+        return (new LoginView())->render();
     }
 }
 
